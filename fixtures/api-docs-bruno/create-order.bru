@@ -1,0 +1,36 @@
+meta {
+  name: Create Order
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/v1/orders
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{authToken}}
+}
+
+body:json {
+  {
+    "orderId": "ord-bruno-example",
+    "customerName": "PT Uji Coba",
+    "subtotalCents": 105,
+    "discountPct": 10,
+    "idempotencyKey": "idem-bruno-example"
+  }
+}
+
+tests {
+  test("Creates an order or returns the existing order on replay", function () {
+    expect([201, 200]).to.include(res.getStatus());
+  });
+}
+
+docs {
+  Re-run with the same orderId and idempotencyKey to verify the replay.
+  Use a fresh pair of values to create another order.
+}

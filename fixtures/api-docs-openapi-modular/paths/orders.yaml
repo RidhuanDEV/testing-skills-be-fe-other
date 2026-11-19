@@ -31,3 +31,78 @@ get:
                       type: integer
                     status:
                       type: string
+post:
+  operationId: createOrder
+  summary: Create an order
+  security:
+    - bearerAuth: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required: [orderId, customerName, subtotalCents, discountPct, idempotencyKey]
+          properties:
+            orderId:
+              type: string
+              description: Must contain a non-whitespace character.
+            customerName:
+              type: string
+              description: Must contain a non-whitespace character.
+            subtotalCents:
+              type: integer
+              minimum: 0
+            discountPct:
+              type: number
+              minimum: 0
+              maximum: 100
+            idempotencyKey:
+              type: string
+              pattern: '\S'
+              description: Must contain a non-whitespace character. Reuse the same key when retrying the same order.
+  responses:
+    '201':
+      description: Order created.
+      content: &checkoutResult
+        application/json:
+          schema:
+            type: object
+            required: [created, order]
+            properties:
+              created:
+                type: boolean
+                description: True for a newly created order and false on replay.
+              order:
+                type: object
+                required: [id, tenantId, customerName, subtotalCents, discountPct, totalCents, status, version, idempotencyKey, createdAt]
+                properties:
+                  id:
+                    type: string
+                  tenantId:
+                    type: string
+                  customerName:
+                    type: string
+                  subtotalCents:
+                    type: integer
+                  discountPct:
+                    type: number
+                  totalCents:
+                    type: integer
+                  status:
+                    type: string
+                    enum: [PENDING, SETTLED, CANCELLED]
+                  version:
+                    type: integer
+                  idempotencyKey:
+                    type: string
+                  createdAt:
+                    type: string
+                    format: date-time
+    '200':
+      description: Existing order returned for the idempotency key.
+      content: *checkoutResult
+    '400':
+      description: Invalid checkout payload.
+    '401':
+      description: A valid Bearer SSO token is required.

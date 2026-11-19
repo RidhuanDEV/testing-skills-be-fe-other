@@ -7,3 +7,8 @@ servers:
 paths:
   /api/v1/orders:
     $ref: './paths/orders.yaml'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
