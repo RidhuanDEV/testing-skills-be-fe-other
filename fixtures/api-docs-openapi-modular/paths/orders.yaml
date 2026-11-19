@@ -1,0 +1,33 @@
+get:
+  operationId: listOrders
+  summary: List orders for the authenticated tenant
+  parameters:
+    - name: status
+      in: query
+      required: false
+      schema:
+        type: string
+        enum: [PENDING, SETTLED, CANCELLED]
+  responses:
+    '200':
+      description: Tenant-scoped order list
+      content:
+        application/json:
+          schema:
+            type: object
+            required: [items]
+            properties:
+              items:
+                type: array
+                items:
+                  type: object
+                  required: [id, tenantId, amountCents, status]
+                  properties:
+                    id:
+                      type: string
+                    tenantId:
+                      type: string
+                    amountCents:
+                      type: integer
+                    status:
+                      type: string

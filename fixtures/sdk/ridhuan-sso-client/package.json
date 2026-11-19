@@ -1,0 +1,8 @@
+{
+  "name": "ridhuan-sso-client",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "description": "Internal verified SSO claim resolver fixture (MUST NOT be silently replaced by unverified npm packages)."
+}

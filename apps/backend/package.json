@@ -1,0 +1,22 @@
+{
+  "name": "@shadow-test/backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
+    "test": "tsx --test src/server.test.ts"
+  },
+  "dependencies": {
+    "express": "5.3.0",
+    "ridhuan-sso-client": "file:../../fixtures/sdk/ridhuan-sso-client"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6",
+    "@types/node": "24.0.0",
+    "tsx": "4.23.15",
+    "typescript": "5.8.3"
+  }
+}

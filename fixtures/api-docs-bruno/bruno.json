@@ -1,0 +1,6 @@
+{
+  "version": "1",
+  "name": "Orders Bruno Collection",
+  "type": "collection",
+  "ignore": ["node_modules", ".git"]
+}

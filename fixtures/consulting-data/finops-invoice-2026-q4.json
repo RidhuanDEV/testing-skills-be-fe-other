@@ -1,0 +1,19 @@
+{
+  "billing_period": "2026-Q4",
+  "currency": "USD",
+  "invoice_total": "1000.00",
+  "dated_tariffs": {
+    "2026-Q3": { "llm_output_per_1m_usd": "15.00", "effective_until": "2026-09-30" },
+    "2026-Q4": { "llm_output_per_1m_usd": "20.00", "effective_from": "2026-10-01" }
+  },
+  "direct_team_costs": {
+    "team-checkout": "400.00",
+    "team-search": "350.00"
+  },
+  "shared_api_gateway_cost": "200.00",
+  "shared_gateway_request_weights": {
+    "team-checkout": 1,
+    "team-search": 2
+  },
+  "notes": "Remaining USD 50.00 is untagged/unallocated platform overhead and MUST be reported explicitly so allocated + unallocated == invoice_total."
+}

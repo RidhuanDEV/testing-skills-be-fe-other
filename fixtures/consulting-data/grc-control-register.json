@@ -1,0 +1,27 @@
+{
+  "assessment_period": "2026-Q3",
+  "regulation_snapshot": {
+    "banking": "POJK 11/2022 + PADK OJK 1/2026 (replacing SEOJK 21/2017)",
+    "isms": "ISO/IEC 27001:2022 (Clauses 4-10 + 93 Annex A Controls)",
+    "governance": "COBIT 2019 (Capability vs Maturity kept separate)",
+    "captured_at": "2026-09-30"
+  },
+  "controls": [
+    {
+      "control_id": "A.8.24",
+      "title": "Use of cryptography for data in transit and at rest",
+      "design_evidence": "Approved KMS & TLS 1.3 policy v2.1 signed by CISO",
+      "required_quarterly_samples": 4,
+      "collected_quarterly_samples": 2,
+      "notes": "Q3 and Q4 operational samples still missing; agent MUST rate Design separately and mark Operating as PENDING/INCOMPLETE rather than EFFECTIVE."
+    },
+    {
+      "control_id": "A.5.15",
+      "title": "Access control & quarterly RBAC recertification",
+      "design_evidence": "IAM SOP v3.0",
+      "required_quarterly_samples": 4,
+      "collected_quarterly_samples": 4,
+      "notes": "All 4 quarterly reviews verified."
+    }
+  ]
+}

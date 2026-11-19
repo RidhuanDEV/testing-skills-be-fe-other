@@ -1,0 +1,14 @@
+node_modules/
+dist/
+build/
+coverage/
+*.db
+*.sqlite
+*.sqlite-journal
+.env
+.env.local
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+fixtures/doc-local-generator/dist/
